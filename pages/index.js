@@ -50,6 +50,7 @@ const Home = () => (
       </div>
     </div>
     <Footer />
+
     <style jsx>{`
       .home-page {
         padding-top: 80px;
