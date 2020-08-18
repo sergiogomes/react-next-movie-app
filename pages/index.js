@@ -7,16 +7,11 @@ import SideMenu from "../components/sideMenu";
 import Carousel from "../components/carousel";
 import MovieList from "../components/movieList";
 
+import { getMovies } from "../actions/index";
+
 const Home = () => {
-  const [count, setCount] = useState(0);
+  const movies = getMovies();
 
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
   return (
     <div>
       <Head>
@@ -46,28 +41,14 @@ const Home = () => {
       <Navbar />
       <div className="home-page">
         <div className="container">
-          <div>
-            <button onClick={increment} className="btn btn-primary">
-              Increment Number
-            </button>
-            <button onClick={decrement} className="btn btn-primary">
-              Decrement Number
-            </button>
-          </div>
           <div className="row">
             <div className="col-lg-3">
-              <SideMenu
-                appName={"Movie DB"}
-                clickHandler={() => {
-                  console.log("Alert");
-                }}
-                count={count}
-              />
+              <SideMenu appName={"Movie DB"} />
             </div>
             <div className="col-lg-9">
               <Carousel />
               <div className="row">
-                <MovieList count={count} />
+                <MovieList movies={movies} />
               </div>
             </div>
           </div>
