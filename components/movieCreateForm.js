@@ -149,7 +149,7 @@ const MovieCreateForm = (props) => {
           </select>
         </div>
         <button onClick={submitForm} type="button" className="btn btn-primary">
-          Create
+          {props.submitButton || "Create"}
         </button>
       </form>
     </React.Fragment>
