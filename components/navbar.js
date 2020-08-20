@@ -3,7 +3,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div className="container">
+      <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">Nextflix</a>
         </Link>

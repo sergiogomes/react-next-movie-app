@@ -19,7 +19,7 @@ class EditMovie extends React.Component {
   render() {
     const { movie } = this.props;
     return (
-      <div className="container">
+      <div className="container-fluid">
         <h1>Edit the Movie</h1>
         <MovieCreateForm
           submitButton="Update"

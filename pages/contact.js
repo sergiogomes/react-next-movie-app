@@ -7,25 +7,29 @@ const emailLink = `mailto:${email}?subject=${subject}&body=${message}`;
 const Contact = () => {
   return (
     <React.Fragment>
-      <div className="container">
-        <div className="jumbotron">
-          <h1 className="display-4">Contact</h1>
-          <div className="bd-example">
-            <address>
-              <strong>Address</strong>
-              <br />
-              135, Americo Campolina Rezende
-              <br />
-              Brazil, 31910385
-              <br />
-              <abbr title="Phone">P:</abbr> +55 (31) 98733-9600
-            </address>
+      <div className="container-fluid">
+        <div className="container">
+          <div className="jumbotron">
+            <h1 className="display-4">Contact</h1>
+            <div className="bd-example">
+              <address>
+                <strong>Address</strong>
+                <br />
+                135, Americo Campolina Rezende
+                <br />
+                Brazil, 31910385
+                <br />
+                <abbr title="Phone">P:</abbr> +55 (31) 98733-9600
+              </address>
 
-            <address>
-              <strong>Sérgio Pow Gomes</strong>
-              <br />
-              <a href={emailLink}>{email}</a>
-            </address>
+              <address>
+                <strong>Sérgio Pow Gomes</strong>
+                <br />
+                <a className="badge badge-pill badge-dark" href={emailLink}>
+                  {email}
+                </a>
+              </address>
+            </div>
           </div>
         </div>
       </div>

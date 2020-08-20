@@ -14,7 +14,7 @@ const Movie = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <img
         src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
         className="img-fluid"
@@ -22,7 +22,7 @@ const Movie = (props) => {
       ></img>
       <div className="jumbotron">
         <h1 className="display-4">{movie.title}</h1>
-        <p className="lead">{movie.tagline}</p>
+        <p className="lead c-dark">{movie.tagline}</p>
         <hr className="my-4" />
 
         <ul className="list-group list-group-horizontal-sm mb-4">
@@ -35,7 +35,7 @@ const Movie = (props) => {
 
         {movie.homepage && (
           <a
-            className="btn btn-primary btn-lg mr-1"
+            className="btn btn-outline-dark btn-lg mr-1"
             href={movie.homepage}
             target="_blank"
             role="button"
@@ -47,28 +47,21 @@ const Movie = (props) => {
           <React.Fragment>
             <button
               onClick={() => handleDeleteMovie(id)}
-              className="btn btn-danger btn-lg mr-1"
+              className="btn btn-outline-danger btn-lg mr-1"
               href="#"
               role="button"
             >
               Delete
             </button>
             <Link href="/movies/[id]/edit" as={`/movies/${id}/edit`}>
-              <button className="btn btn-warning btn-lg" role="button">
+              <button className="btn btn-outline-warning btn-lg" role="button">
                 Edit
               </button>
             </Link>
           </React.Fragment>
         )}
       </div>
-      <p className="lead">{movie.overview}</p>
-      <style jsx>
-        {`
-          .desc-text {
-            font-size: 21px;
-          }
-        `}
-      </style>
+      <p className="lead c-white">{movie.overview}</p>
     </div>
   );
 };

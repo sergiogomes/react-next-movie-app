@@ -65,7 +65,7 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <div className="home-page">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-lg-3">
                 <SideMenu
@@ -77,7 +77,9 @@ class Home extends React.Component {
               </div>
               <div className="col-lg-9">
                 <Carousel images={images || []} />
-                <h3>Displaying {this.state.filter[1]} Movies </h3>
+                <h4 className="my-4 c-red">
+                  Displaying {this.state.filter[1]} Movies{" "}
+                </h4>
                 <div className="row">
                   {/* {errorMessage && (
                     <div className="alert alert-danger" role="alert">
@@ -133,7 +135,7 @@ class Home extends React.Component {
 //       </Head>
 //       <Navbar />
 //       <div className="home-page">
-//         <div className="container">
+//         <div className="container-fluid">
 //           <div className="row">
 //             <div className="col-lg-3">
 //               <SideMenu appName={"Movie DB"} />

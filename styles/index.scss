@@ -1,7 +1,12 @@
+$dark-color: #212529;
+$red-color: #dc3545;
+$white-color: #e9ecef;
+
 body {
   min-height: 100vh;
   position: relative;
   margin: 0;
+  background-color: $dark-color;
 }
 
 footer {
@@ -11,19 +16,19 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(224, 224, 224);
+  background-color: #343a40;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar {
-  background-color: rgba(245, 245, 245, 0.5);
+  background-color: $dark-color;
   height: 8px;
   width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(34, 34, 34, 0.58);
+  background-color: $red-color;
   border-radius: 8px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
@@ -45,7 +50,7 @@ footer {
 .navbar {
   min-height: 80px;
 
-  > li > a {
+  >li>a {
     font-size: 19px;
   }
 }
@@ -55,6 +60,30 @@ footer {
   font-weight: bold;
 }
 
+.navbar-dark .navbar-brand {
+  color: $red-color;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: $red-color;
+}
+
 .img-fluid {
   width: 100%;
+}
+
+.bg-dark {
+  background-color: $dark-color;
+}
+
+.c-dark {
+  color: $dark-color
+}
+
+.c-red {
+  color: $red-color
+}
+
+.c-white {
+  color: $white-color;
 }

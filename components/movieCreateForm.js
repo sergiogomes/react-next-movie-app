@@ -148,7 +148,11 @@ const MovieCreateForm = (props) => {
             <option>musical</option>
           </select>
         </div>
-        <button onClick={submitForm} type="button" className="btn btn-primary">
+        <button
+          onClick={submitForm}
+          type="button"
+          className="btn btn-outline-dark"
+        >
           {props.submitButton || "Create"}
         </button>
       </form>

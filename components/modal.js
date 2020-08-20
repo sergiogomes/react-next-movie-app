@@ -10,7 +10,7 @@
 //     <React.Fragment>
 //       <button
 //         type="button"
-//         className="btn btn-primary"
+//         className="btn btn-outline-dark"
 //         data-toggle="modal"
 //         data-target="#exampleModal"
 //       >
@@ -53,7 +53,7 @@
 //                 <button
 //                   onClick={submitModal}
 //                   type="button"
-//                   className="btn btn-primary"
+//                   className="btn btn-outline-dark"
 //                 >
 //                   Save changes
 //                 </button>
@@ -90,7 +90,7 @@ class Modal extends React.Component {
         {this.props.environment === "dev" && (
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-outline-dark"
             data-toggle="modal"
             data-target="#exampleModal"
           >
@@ -134,7 +134,7 @@ class Modal extends React.Component {
                   <button
                     onClick={this.submitModal}
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-outline-dark"
                   >
                     Save changes
                   </button>
