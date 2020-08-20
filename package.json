@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "server": "node server/index.js",
-    "dev": "next dev",
+    "dev": "node server/index.js",
     "build": "next build",
     "start": "next start"
   },

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = "http://localhost:3000";
-const BASE_URL = "https://react-next-movie-app.vercel.app";
+const BASE_URL = "http://localhost:3000";
+// const BASE_URL = "https://react-next-movie-app.vercel.app";
 
 const MOVIE_DATA = [];
 
