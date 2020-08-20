@@ -4,9 +4,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container">
-        <a className="navbar-brand" href="#">
-          Start Bootstrap
-        </a>
+        <Link href="/">
+          <a className="navbar-brand">Nextflix</a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -20,7 +20,8 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
+            <li className={`nav-item `}>
+              {/* ${current ? "active" : ""} */}
               <Link href="/">
                 <a className="nav-link">
                   Home

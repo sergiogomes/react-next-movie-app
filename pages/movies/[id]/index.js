@@ -25,13 +25,14 @@ const Movie = (props) => {
         <p className="lead">{movie.tagline}</p>
         <hr className="my-4" />
 
-        <ul className="list-group list-group-horizontal-sm mb-2">
+        <ul className="list-group list-group-horizontal-sm mb-4">
           {movie.genres.map((genre) => (
-            <li className="list-group-item" key={genre.id}>
+            <span key={genre.id} className="badge badge-pill badge-dark mr-1">
               {genre.name}
-            </li>
+            </span>
           ))}
         </ul>
+
         {movie.homepage && (
           <a
             className="btn btn-primary btn-lg mr-1"

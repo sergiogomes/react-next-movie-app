@@ -56,14 +56,14 @@ class Home extends React.Component {
   };
 
   // // called only on Client (Browser...)
-  componentDidMount() {
-    //
-  }
+  // componentDidMount() {
+  //
+  // }
 
   render() {
     const { movies, images, categories } = this.props;
     return (
-      <div>
+      <React.Fragment>
         <div className="home-page">
           <div className="container">
             <div className="row">
@@ -71,7 +71,7 @@ class Home extends React.Component {
                 <SideMenu
                   changeCategory={this.handleChangeCategory}
                   activeCategory={this.state.filter[0]}
-                  appName={"Movie DB"}
+                  appName={"Categories"}
                   categories={categories || []}
                 />
               </div>
@@ -90,7 +90,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
