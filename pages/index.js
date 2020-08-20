@@ -16,8 +16,24 @@ class Home extends React.Component {
 
   // wait for the movies on server side before renders on browser
   static async getInitialProps() {
-    const movies = await getMovies();
-    const categories = await getCategories();
+    // const movies = await getMovies();
+    // const categories = await getCategories();
+    let movies = [];
+    let categories = [];
+    getMovies()
+      .then((result) => {
+        movies = result;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    getCategories()
+      .then((result) => {
+        categories = result;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     const images = movies.map((movie) => {
       return {
         id: `image-${movie.id}`,
