@@ -7,6 +7,13 @@ import MovieList from "../components/movieList";
 import { getMovies, getCategories } from "../actions/index";
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filter: "all",
+    };
+  }
+
   // wait for the movies on server side before renders on browser
   static async getInitialProps() {
     const movies = await getMovies();
@@ -21,24 +28,21 @@ class Home extends React.Component {
     return { movies, categories, images };
   }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     movies: [],
-  //     errorMessage: "",
-  //   };
-  // }
+  handleChangeCategory = (category) => {
+    this.setState({ filter: category });
+  };
+
+  filterMovies = (movies) => {
+    if (this.state.filter === "all") return movies;
+    return movies.filter((m) => {
+      return m.genre && m.genre.includes(this.state.filter);
+    });
+  };
 
   // // called only on Client (Browser...)
-  // componentDidMount() {
-  //   getMovies()
-  //     .then((movies) => {
-  //       this.setState({ movies });
-  //     })
-  //     .catch((errorMessage) => {
-  //       this.setState({ errorMessage });
-  //     });
-  // }
+  componentDidMount() {
+    //
+  }
 
   render() {
     const { movies, images, categories } = this.props;
@@ -48,17 +52,23 @@ class Home extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-3">
-                <SideMenu appName={"Movie DB"} categories={categories || []} />
+                <SideMenu
+                  changeCategory={this.handleChangeCategory}
+                  activeCategory={this.state.filter}
+                  appName={"Movie DB"}
+                  categories={categories || []}
+                />
               </div>
               <div className="col-lg-9">
                 <Carousel images={images || []} />
+                <h1>Displaying {this.state.filter} movies </h1>
                 <div className="row">
                   {/* {errorMessage && (
                     <div className="alert alert-danger" role="alert">
                       {errorMessage}
                     </div>
                   )} */}
-                  <MovieList movies={movies || []} />
+                  <MovieList movies={this.filterMovies(movies) || []} />
                 </div>
               </div>
             </div>
