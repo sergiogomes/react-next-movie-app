@@ -8,8 +8,8 @@ const dev = {
 
 const prod = {
   url: "https://api.themoviedb.org/3",
-  // api_key: process.env.API_ENV,
-  api_key: "073df7ab63d2a00bc00f800c2f00b9cf",
+  api_key: process.env.API_ENV,
+
   language: "en-US",
 };
 
@@ -130,11 +130,12 @@ export const getMovies = (page = 1) => {
         `${prod.url}/movie/popular?api_key=${prod.api_key}&language=${prod.language}&page=${page}`
       )
       .then((res) => {
-        if (data && data.results) return res.data.results;
+        if (res.data && res.data.results) return res.data.results;
         else return [];
       })
       .catch((error) => {
         console.error("getMovies", error);
+        return [];
       });
   } else {
     return axios.get(`${dev.url}/api/v1/movies`).then((res) => {
