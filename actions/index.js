@@ -8,7 +8,8 @@ const dev = {
 
 const prod = {
   url: "https://api.themoviedb.org/3",
-  api_key: process.env.API_ENV,
+  // api_key: process.env.API_ENV,
+  api_key: "073df7ab63d2a00bc00f800c2f00b9cf",
   language: "en-US",
 };
 
