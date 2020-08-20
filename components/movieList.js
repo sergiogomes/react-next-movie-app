@@ -17,7 +17,7 @@ class MovieList extends React.Component {
             <a>
               <img
                 className="card-img-top"
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt={movie.title}
               />
             </a>

@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 import Modal from "./modal";
 import MovieCreateForm from "./movieCreateForm";
-import { createMovie } from "../actions/index";
+import { environment, createMovie } from "../actions/index";
 
 const SideMenu = (props) => {
   const { categories } = props;
@@ -18,7 +17,11 @@ const SideMenu = (props) => {
 
   return (
     <div>
-      <Modal ref={(ele) => (modal = ele)} hasSubmit={false}>
+      <Modal
+        ref={(ele) => (modal = ele)}
+        hasSubmit={false}
+        environment={environment}
+      >
         <MovieCreateForm handleFormSubmit={handleCreateMovie} />
       </Modal>
       <h1 className="my-4">{props.appName}</h1>

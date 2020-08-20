@@ -1,30 +1,16 @@
 import axios from "axios";
 
-const environment = "prod";
+export const environment = "prod";
 
 const dev = {
   url: "http://localhost:3000",
 };
+
 const prod = {
   url: "https://api.themoviedb.org/3",
-  api_key: "073df7ab63d2a00bc00f800c2f00b9cf",
+  api_key: process.env.API_ENV,
   language: "en-US",
 };
-
-//https://api.themoviedb.org/3/genre/movie/list?api_key=073df7ab63d2a00bc00f800c2f00b9cf&language=en-US
-// "/genre/movie/list"
-// "?api_key="
-// "&language=en-US";
-
-// https://www.themoviedb.org/settings/api
-
-// API Key (v3 auth)
-// 073df7ab63d2a00bc00f800c2f00b9cf
-
-// Example API Request
-// https://api.themoviedb.org/3/movie/550?api_key=073df7ab63d2a00bc00f800c2f00b9cf
-
-const MOVIE_DATA = [];
 
 const CATEGORY_DATA = [
   {
@@ -109,18 +95,6 @@ const CATEGORY_DATA = [
   },
 ];
 
-// export const getCategories = () => {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       try {
-//         resolve(CATEGORY_DATA);
-//       } catch (error) {
-//         reject(`Cannot fetch data: ${error}`);
-//       }
-//     }, 200);
-//   });
-// };
-
 export const getCategories = () => {
   if (environment === "prod") {
     return axios
@@ -155,7 +129,8 @@ export const getMovies = (page = 1) => {
         `${prod.url}/movie/popular?api_key=${prod.api_key}&language=${prod.language}&page=${page}`
       )
       .then((res) => {
-        return res.data.results;
+        if (data && data.results) return res.data.results;
+        else return [];
       })
       .catch((error) => {
         console.error("getMovies", error);
@@ -175,9 +150,22 @@ export const createMovie = (movie) => {
 };
 
 export const getMovieById = (id) => {
-  return axios.get(`${dev.url}/api/v1/movies/${id}`).then((res) => {
-    return res.data;
-  });
+  if (environment === "prod") {
+    return axios
+      .get(
+        `${prod.url}/movie/${id}?api_key=${prod.api_key}&language=${prod.language}`
+      )
+      .then((res) => {
+        return res.data;
+      })
+      .catch((error) => {
+        console.error("getMovieById", error);
+      });
+  } else {
+    return axios.get(`${dev.url}/api/v1/movies/${id}`).then((res) => {
+      return res.data;
+    });
+  }
 };
 
 export const updateMovie = (movie) => {

@@ -77,7 +77,7 @@ class Home extends React.Component {
               </div>
               <div className="col-lg-9">
                 <Carousel images={images || []} />
-                <h1>Displaying {this.state.filter[1]} movies </h1>
+                <h3>Displaying {this.state.filter[1]} Movies </h3>
                 <div className="row">
                   {/* {errorMessage && (
                     <div className="alert alert-danger" role="alert">
