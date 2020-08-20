@@ -10,7 +10,7 @@ const SideMenu = (props) => {
   let modal = null;
 
   const handleCreateMovie = (movie) => {
-    createMovie(movie).then((movies) => {
+    createMovie(movie).then(() => {
       modal.closeModal();
       router.push("/");
     });
@@ -26,10 +26,10 @@ const SideMenu = (props) => {
         {categories.map((c) => (
           <a
             key={c.id}
-            onClick={() => props.changeCategory(c.name)}
+            onClick={() => props.changeCategory(c)}
             href="#"
             className={`list-group-item ${
-              props.activeCategory === c.name ? "active" : ""
+              props.activeCategory === c.id ? "active" : ""
             }`}
           >
             {c.name}

@@ -10,48 +10,48 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: "all",
+      filter: [0, "All"],
     };
   }
 
   // wait for the movies on server side before renders on browser
   static async getInitialProps() {
-    // const movies = await getMovies();
-    // const categories = await getCategories();
-    let movies = [];
-    let categories = [];
-    getMovies()
-      .then((result) => {
-        movies = result;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    getCategories()
-      .then((result) => {
-        categories = result;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const movies = await getMovies();
+    const categories = await getCategories();
+    // let movies = [];
+    // let categories = [];
+    // getMovies()
+    //   .then((result) => {
+    //     movies = result;
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
+    // getCategories()
+    //   .then((result) => {
+    //     categories = result;
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
     const images = movies.map((movie) => {
       return {
         id: `image-${movie.id}`,
-        url: movie.cover,
-        name: movie.name,
+        backdrop_path: movie.backdrop_path,
+        title: movie.title,
       };
     });
     return { movies, categories, images };
   }
 
   handleChangeCategory = (category) => {
-    this.setState({ filter: category });
+    this.setState({ filter: [category.id, category.name] });
   };
 
   filterMovies = (movies) => {
-    if (this.state.filter === "all") return movies;
+    if (this.state.filter[0] === 0) return movies;
     return movies.filter((m) => {
-      return m.genre && m.genre.includes(this.state.filter);
+      return m.genre_ids && m.genre_ids.includes(this.state.filter[0]);
     });
   };
 
@@ -70,14 +70,14 @@ class Home extends React.Component {
               <div className="col-lg-3">
                 <SideMenu
                   changeCategory={this.handleChangeCategory}
-                  activeCategory={this.state.filter}
+                  activeCategory={this.state.filter[0]}
                   appName={"Movie DB"}
                   categories={categories || []}
                 />
               </div>
               <div className="col-lg-9">
                 <Carousel images={images || []} />
-                <h1>Displaying {this.state.filter} movies </h1>
+                <h1>Displaying {this.state.filter[1]} movies </h1>
                 <div className="row">
                   {/* {errorMessage && (
                     <div className="alert alert-danger" role="alert">

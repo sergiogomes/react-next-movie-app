@@ -26,8 +26,8 @@ const Carousel = (props) => {
           >
             <img
               className="d-block img-fluid"
-              src={image.url}
-              alt={image.name}
+              src={`https://image.tmdb.org/t/p/original/${image.backdrop_path}`}
+              alt={image.title}
             />
           </div>
         ))}

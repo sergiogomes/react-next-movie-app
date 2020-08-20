@@ -8,31 +8,38 @@ class MovieList extends React.Component {
     }
     return text;
   };
+
   renderMovies(movies) {
     return movies.map((movie) => (
       <div key={movie.id} className="col-lg-4 col-md-6 mb-4">
         <div className="card h-100">
           <Link href="/movies/[id]" as={`/movies/${movie.id}`}>
             <a>
-              <img className="card-img-top" src={movie.image} alt="" />
+              <img
+                className="card-img-top"
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt={movie.title}
+              />
             </a>
           </Link>
           <div className="card-body">
             <h4 className="card-title">
               <Link href="/movies/[id]" as={`/movies/${movie.id}`}>
-                <a>{movie.name}</a>
+                <a>{movie.title}</a>
               </Link>
             </h4>
             <div className="movie-genre text-muted">{movie.genre}</div>
-            <p className="card-text">{this.shorten(movie.description, 100)}</p>
+            <p className="card-text">{this.shorten(movie.overview, 100)}</p>
           </div>
           <div className="card-footer">
-            <small className="text-muted">{movie.rating}</small>
+            <small className="text-muted">{movie.vote_average}</small>
           </div>
         </div>
       </div>
     ));
   }
+
+  // TODO: Implement pagination. The themoviedb api is prepared.
 
   render() {
     const { movies } = this.props;
