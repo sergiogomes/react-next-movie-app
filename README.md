@@ -1,4 +1,6 @@
-# react-next-movie-app
+# Nextflix
+
+Nextflix is a beautiful web app built on React and NextJS framework, consuming TMDB API.
 
 react-next-movie-app
 

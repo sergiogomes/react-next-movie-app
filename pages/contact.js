@@ -22,6 +22,8 @@ const Contact = () => {
                 <abbr title="Phone">P:</abbr> +55 (31) 98733-9600
               </address>
 
+              <hr className="my-4" />
+
               <address>
                 <strong>Sérgio Pow Gomes</strong>
                 <br />

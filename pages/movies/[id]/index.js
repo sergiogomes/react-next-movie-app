@@ -15,53 +15,61 @@ const Movie = (props) => {
 
   return (
     <div className="container-fluid">
-      <img
-        src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-        className="img-fluid"
-        alt={movie.title}
-      ></img>
-      <div className="jumbotron">
-        <h1 className="display-4">{movie.title}</h1>
-        <p className="lead c-dark">{movie.tagline}</p>
-        <hr className="my-4" />
+      <div className="container">
+        <img
+          src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+          className="img-fluid"
+          alt={movie.title}
+        ></img>
+        <div className="jumbotron">
+          <h1 className="display-4">{movie.title}</h1>
+          <p className="lead c-dark">{movie.tagline}</p>
+          <hr className="my-4" />
 
-        <ul className="list-group list-group-horizontal-sm mb-4">
-          {movie.genres.map((genre) => (
-            <span key={genre.id} className="badge badge-pill badge-dark mr-1">
-              {genre.name}
-            </span>
-          ))}
-        </ul>
+          <ul className="list-group-horizontal-sm mb-4">
+            {movie.genres.map((genre) => (
+              <span
+                key={genre.id}
+                className="badge badge-pill badge-dark mr-1 mt-1"
+              >
+                {genre.name}
+              </span>
+            ))}
+          </ul>
 
-        {movie.homepage && (
-          <a
-            className="btn btn-outline-dark btn-lg mr-1"
-            href={movie.homepage}
-            target="_blank"
-            role="button"
-          >
-            Learn more
-          </a>
-        )}
-        {environment === "dev" && (
-          <React.Fragment>
-            <button
-              onClick={() => handleDeleteMovie(id)}
-              className="btn btn-outline-danger btn-lg mr-1"
-              href="#"
+          {movie.homepage && (
+            <a
+              className="btn btn-outline-dark btn-lg mr-1"
+              href={movie.homepage}
+              target="_blank"
               role="button"
             >
-              Delete
-            </button>
-            <Link href="/movies/[id]/edit" as={`/movies/${id}/edit`}>
-              <button className="btn btn-outline-warning btn-lg" role="button">
-                Edit
+              Learn more
+            </a>
+          )}
+          {environment === "dev" && (
+            <React.Fragment>
+              <button
+                onClick={() => handleDeleteMovie(id)}
+                className="btn btn-outline-danger btn-lg mr-1"
+                href="#"
+                role="button"
+              >
+                Delete
               </button>
-            </Link>
-          </React.Fragment>
-        )}
+              <Link href="/movies/[id]/edit" as={`/movies/${id}/edit`}>
+                <button
+                  className="btn btn-outline-warning btn-lg"
+                  role="button"
+                >
+                  Edit
+                </button>
+              </Link>
+            </React.Fragment>
+          )}
+        </div>
+        <p className="lead c-white">{movie.overview}</p>
       </div>
-      <p className="lead c-white">{movie.overview}</p>
     </div>
   );
 };
