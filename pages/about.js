@@ -29,6 +29,7 @@ class About extends React.Component {
     this.setState({
       emailLink: `mailto:${this.state.email}?subject=${this.state.subject}&body=${this.state.message}`,
     });
+    debugger;
     if (process && process.env && process.env.VERCEL_GITHUB_COMMIT_REF) {
       console.log(process.env.VERCEL_URL);
       console.log(process.env.VERCEL_GITHUB_DEPLOYMENT);
@@ -60,7 +61,7 @@ class About extends React.Component {
               <h1 className="display-4">Nextflix</h1>
               <section>
                 <h4>Version: {this.state.version || "1.0.0"}</h4>
-                <ul className="list-group-horizontal-sm mb-4">
+                <div className="list-group-horizontal-sm mb-4">
                   {this.state.tags.map((tag) => (
                     <span
                       key={tag}
@@ -69,7 +70,7 @@ class About extends React.Component {
                       {tag}
                     </span>
                   ))}
-                </ul>
+                </div>
               </section>
               <p className="lead c-dark">
                 A beautiful web app built on React and NextJS framework,

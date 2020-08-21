@@ -26,7 +26,7 @@ const Movie = (props) => {
           <p className="lead c-dark">{movie.tagline}</p>
           <hr className="my-4" />
 
-          <ul className="list-group-horizontal-sm mb-4">
+          <div className="list-group-horizontal-sm mb-4">
             {movie.genres.map((genre) => (
               <span
                 key={genre.id}
@@ -35,7 +35,7 @@ const Movie = (props) => {
                 {genre.name}
               </span>
             ))}
-          </ul>
+          </div>
 
           {movie.homepage && (
             <a

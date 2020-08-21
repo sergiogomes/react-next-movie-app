@@ -2,6 +2,10 @@
 
 Nextflix is a beautiful web app built on React and NextJS framework, consuming TMDB API.
 
+![Nextflix](https://raw.githubusercontent.com/sergiogomes/react-next-movie-app/master/public/promo.png)
+
+Tags: nextjs react nodejs express axios vercel movies
+
 react-next-movie-app
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
