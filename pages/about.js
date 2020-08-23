@@ -29,7 +29,7 @@ class About extends React.Component {
     this.setState({
       emailLink: `mailto:${this.state.email}?subject=${this.state.subject}&body=${this.state.message}`,
     });
-    debugger;
+
     if (process && process.env && process.env.VERCEL_GITHUB_COMMIT_REF) {
       console.log(process.env.VERCEL_URL);
       console.log(process.env.VERCEL_GITHUB_DEPLOYMENT);
@@ -78,6 +78,10 @@ class About extends React.Component {
               </p>
               <hr className="my-4" />
               <p className="font-weight-light">Developed by SergioPow</p>
+              <img
+                src="https://wakatime.com/badge/github/sergiogomes/react-next-movie-app.svg"
+                className="mt-1 mb-3"
+              />
               <address>
                 <p className="font-italic">
                   Reach me on:
